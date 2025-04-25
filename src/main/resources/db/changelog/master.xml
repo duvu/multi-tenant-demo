@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <!-- Create schemas for tenants -->
+    <changeSet id="init" author="vud">
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA IF NOT EXISTS tenant1;
+        </sql>
+    </changeSet>
+
+    <!-- Create schema tenant2 -->
+    <changeSet id="2" author="vud">
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA IF NOT EXISTS tenant2;
+        </sql>
+    </changeSet>
+
+    <!-- Include tenant changelogs -->
+    <include file="db/changelog/tenant1/tenant-changelog.xml"/>
+    <include file="db/changelog/tenant2/tenant-changelog.xml"/>
+
+</databaseChangeLog>
