@@ -5,7 +5,7 @@
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
     <changeSet id="tenant2-init1" author="vud">
-        <createTable tableName="users">
+        <createTable tableName="users" schemaName="tenant2">
             <column name="id" type="bigint">
                 <constraints nullable="false" />
             </column>
